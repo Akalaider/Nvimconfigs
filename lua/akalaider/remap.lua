@@ -11,3 +11,11 @@ vim.keymap.set("n", "<leader>rw", function()
     true
   )
 end)
+vim.keymap.set("n", "<leader>fw", function()
+  local word = vim.fn.expand("<cword>")
+  vim.api.nvim_feedkeys(
+    vim.api.nvim_replace_termcodes("/" .. word .. "<Enter>", true, false, true),
+    "n",
+    true
+  )
+end)
