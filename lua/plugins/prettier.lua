@@ -1,0 +1,28 @@
+return {
+	"stevearc/conform.nvim",
+	opts = {
+		formatters_by_ft = {
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescriptreact = { "prettier" },
+			css = { "prettier" },
+			html = { "prettier" },
+			json = { "prettier" },
+			yaml = { "prettier" },
+			markdown = { "prettier" },
+		},
+		format_on_save = {
+			timeout_ms = 500,
+			lsp_fallback = true,
+		},
+	},
+	config = function(_, opts)
+		require("conform").setup(opts)
+
+		-- Create a :Format command so you can type it manually
+		vim.api.nvim_create_user_command("Format", function()
+			require("conform").format({ async = true })
+		end, {})
+	end,
+}

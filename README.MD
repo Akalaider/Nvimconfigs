@@ -12,4 +12,5 @@ Neovim >= 11.0
 - tree-sitter-cli
 - ripgrep
 - fd
-
+### Optional dependencies
+- prettier (for webdev)
